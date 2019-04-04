@@ -47,9 +47,15 @@
     <description>Keep track of every session and the time associated with it.</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+<<<<<<< HEAD
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+=======
     <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
+>>>>>>> a37b140998d9759a5043cebe76fe0b3f91e019ed
     <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
@@ -118,6 +124,20 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+<<<<<<< HEAD
+        <fullName>Session_Time__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Retains each session Time</description>
+        <externalId>false</externalId>
+        <label>Session Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Time</type>
+    </fields>
+    <fields>
+=======
+>>>>>>> a37b140998d9759a5043cebe76fe0b3f91e019ed
         <fullName>Time__c</fullName>
         <deprecated>false</deprecated>
         <description>Time of case</description>
@@ -131,6 +151,14 @@
     <label>Session Time</label>
     <listViews>
         <fullName>All</fullName>
+<<<<<<< HEAD
+        <columns>NAME</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>Duration__c</columns>
+        <columns>Date__c</columns>
+        <columns>LAST_UPDATE</columns>
+=======
+>>>>>>> a37b140998d9759a5043cebe76fe0b3f91e019ed
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>

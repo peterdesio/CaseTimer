@@ -15,14 +15,34 @@
         loadSessionAction.setCallback(this, function(response) {
             var state = response.getState();
             if(state === "SUCCESS") {
+<<<<<<< HEAD
+                var completeTime = 0.00;
+  			    component.set('v.sessions',response.getReturnValue());  
+                console.log(response.getReturnValue())
+ 
+                /*
+                var result = response.getReturnValue();
+                for (var i = 0; i < result.length; i++) {
+                    completeTime = completeTime + result[i].Duration__c;
+                }
+			    // var d = new Date(completeTime * 1000).toISOString().substr(11, 8);
+                component.set('v.totalSesh', completeTime);
+                */
+                
+            	/*
+=======
                 
                 /*
+>>>>>>> a37b140998d9759a5043cebe76fe0b3f91e019ed
                 // Prepare a toast UI message
                 var resultsToast = $A.get("e.force:showToast");
                 resultsToast.setParams({
                     "title": "Sessions Loaded",
                     "message": "The new session were loaded"
                 });
+<<<<<<< HEAD
+                
+=======
                 */                
                 component.set('v.sessions',response.getReturnValue());
                 var completeTime = 0;
@@ -32,16 +52,31 @@
                 var d = new Date(completeTime * 1000).toISOString().substr(11, 8);
                 component.set('v.totalSesh',d);
                
+>>>>>>> a37b140998d9759a5043cebe76fe0b3f91e019ed
                 // Update the UI: close panel, show toast, refresh case page
                 $A.get("e.force:closeQuickAction").fire();
                 resultsToast.fire();
                 $A.get("e.force:refreshView").fire();
+<<<<<<< HEAD
+                */
+                console.log('Sessions Loaded');
+
+            }
+            else if (state === "ERROR") {
+                console.log('Problem saving session, response state: ' + state);
+                console.log('Error: ' + component.get("v.error"));
+            }
+            else {
+                console.log('Unknown problem, response state: ' + state);
+                console.log('Error: ' + component.get("v.error"));
+=======
             }
             else if (state === "ERROR") {
                 console.log('Problem saving session, response state: ' + state);
             }
             else {
                 console.log('Unknown problem, response state: ' + state);
+>>>>>>> a37b140998d9759a5043cebe76fe0b3f91e019ed
             }
         });
         

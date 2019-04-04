@@ -33,10 +33,17 @@
 
     <aura:if isTrue="{!v.hideCmp == 'False'}">
         <lightning:card iconName="custom:custom25" aura:id="cmpCard">
+<<<<<<< HEAD
+           <aura:set attribute="title">
+                <div class="slds-media__body">
+                    <h1 class="slds-page-header__title slds-truncate slds-align-middle" title="Session Timer">{!v.cmpHeader}</h1>
+                    <p class="slds-text-body_small slds-line-height_reset">Total:{!v.simpleCase.sf_caseTimer__Total_Time__c}</p>
+=======
             <aura:set attribute="title">
                 <div class="slds-media__body">
                     <h1 class="slds-page-header__title slds-truncate slds-align-middle" title="Session Timer">{!v.cmpHeader}</h1>
                     <p class="slds-text-body_small slds-line-height_reset">Total:{!v.totalSesh}</p>
+>>>>>>> a37b140998d9759a5043cebe76fe0b3f91e019ed
                 </div>
             </aura:set>
             <aura:set attribute="actions">
@@ -80,6 +87,10 @@
                         </thead>
                         <tbody>
                             <aura:iteration items="{!v.sessions}" var="session">
+<<<<<<< HEAD
+                             
+=======
+>>>>>>> a37b140998d9759a5043cebe76fe0b3f91e019ed
                                 <c:SessionItem session="{!session}"/>
                             </aura:iteration>
                         </tbody>

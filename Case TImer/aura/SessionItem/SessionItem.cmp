@@ -4,10 +4,28 @@
     
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     
+<<<<<<< HEAD
+    
+    <tr>
+        <td class="slds-row-number numCol rowClass"></td>
+        <td class="rowClass">{!v.session.sf_caseTimer__Agent__r.Name}</td>
+        <td class="rowClass">{!v.session.sf_caseTimer__Date__c}</td> 
+        <td class="rowClass">{!v.session.sf_caseTimer__Duration__c}</td>  
+        <!--  <td class="rowClass">
+           <div class="slds-truncate" title="">
+               <lightning:formattedTime value="{!v.session.sf_caseTimer__Session_Time__c}" />
+           </div>
+ 		</td>
+		-->
+    </tr>
+
+    
+=======
     <tr>
         <td class="slds-row-number numCol rowClass"></td>
         <td class="rowClass">{!v.session.Agent__r.Name}</td>
         <td class="rowClass">{!v.session.Date__c}</td>
         <td class="rowClass">{!v.duration}</td>
     </tr>
+>>>>>>> a37b140998d9759a5043cebe76fe0b3f91e019ed
 </aura:component>

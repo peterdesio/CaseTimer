@@ -143,8 +143,13 @@
 
             // Send the request to create the new session
             $A.enqueueAction(saveSessionAction);
+<<<<<<< HEAD
+            helper.hideModal(component, event);
+        }
+=======
         }
         helper.hideModal(component, event);
+>>>>>>> a37b140998d9759a5043cebe76fe0b3f91e019ed
         helper.loadSessions(component, event);        
         
     },    
