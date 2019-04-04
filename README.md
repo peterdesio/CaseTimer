@@ -1,2 +1,0 @@
-# CaseTimer
-Times Cases
