@@ -1,0 +1,7 @@
+<design:component>
+    <design:attribute name="cmpHeader" label="Component Header"/> <!-- Edit the tile of the component header -->
+    <design:attribute name="hideCmp" label="Hide Component?" datasource="True,False" /> <!-- Hide the component -->
+    <design:attribute name="hideClock" label="Hide Component Clock?" datasource="True,False" /> <!-- Hide the clock -->
+    <design:attribute name="allowManual" label="Allow Manual Logging?" datasource="True,False" /> <!-- Allow Manual Time Entries -->
+    <design:attribute name="autoStart" label="Start timer automatically" datasource="True,False" /> <!-- Start timer automatically -->
+</design:component>
