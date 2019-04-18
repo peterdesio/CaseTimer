@@ -1,0 +1,134 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" controller="CaseTimeCount" access="global" >
+	
+    <aura:handler event="aura:locationChange" action="{!c.update}"/> 
+    
+    <aura:attribute name="cmpHeader" type="String" default="Session Timer" access="global"/> 
+    <aura:attribute name="hideCmp" type="String" default="False" access="global"/>
+    <aura:attribute name="hideClock" type="String" default="False" access="global"/>	
+    <aura:attribute name="allowManual" type="String" default="True" access="global"/>
+    <aura:attribute name="autoStart" type="String" default="True" access="global"/>
+    
+    <!-- <aura:attribute name="tabId" type="String"/> -->
+    <aura:attribute name="stopwatch" type="Object"/>
+    <aura:attribute name="recording" type="Boolean" default="false"/>
+    <aura:attribute name="playing" type="Boolean" default="false"/>
+    <aura:attribute name="disabled" type="Boolean" default="false"/>
+    <aura:attribute name="stime" type='String' default="00:00:00"/>
+    <aura:attribute name="totalSesh" type='String' default="00:00:00"/>   
+    <aura:attribute name="currentCases" type="Case" />
+    <aura:attribute name="sessions" type="Session_Time__c[]"/>
+	<aura:attribute name="manualDuration" type="String"/> 
+    <aura:attribute name="manualDate" type="Date" default="" />
+    
+    <aura:attribute name="recordInfo" type="Object"/>
+    <aura:attribute name="simpleCase" type="Object"/>
+    <aura:attribute name="caseError" type="String"/>
+    <force:recordData aura:id="caseRecordLoader"
+                        recordId="{!v.recordId}"
+                        layoutType="FULL"
+                        targetRecord="{!v.recordInfo}"
+                        targetFields="{!v.simpleCase}"
+                        targetError="{!v.caseError}"
+                        recordUpdated="{!c.doInit}"/>  
+
+    <aura:if isTrue="{!v.hideCmp == 'False'}">
+        <lightning:card iconName="custom:custom25" aura:id="cmpCard">
+<<<<<<< HEAD
+           <aura:set attribute="title">
+                <div class="slds-media__body">
+                    <h1 class="slds-page-header__title slds-truncate slds-align-middle" title="Session Timer">{!v.cmpHeader}</h1>
+                    <p class="slds-text-body_small slds-line-height_reset">Total:{!v.simpleCase.sf_caseTimer__Total_Time__c}</p>
+=======
+            <aura:set attribute="title">
+                <div class="slds-media__body">
+                    <h1 class="slds-page-header__title slds-truncate slds-align-middle" title="Session Timer">{!v.cmpHeader}</h1>
+                    <p class="slds-text-body_small slds-line-height_reset">Total:{!v.totalSesh}</p>
+>>>>>>> a37b140998d9759a5043cebe76fe0b3f91e019ed
+                </div>
+            </aura:set>
+            <aura:set attribute="actions">
+                <aura:if isTrue="{!v.allowManual == 'True'}">
+                    <lightning:button label="New" onclick="{!c.newTime}" disabled="{!v.disabled}"/>
+                </aura:if>
+            </aura:set>
+            <div class='slds-card'>
+                <aura:if isTrue="{!v.hideClock == 'False'}">
+                    <center aura:id="timerDiv">
+                        <ul class="buttonAndTimer">
+                            <li>
+                                <aura:if isTrue="{!v.playing}">
+                                    <img id="stop" src="{!$Resource.timerpause}" onclick="{!c.onClick}"/>
+                                    <aura:set attribute="else">
+                                        <img id="start" src="{!$Resource.timerplay}" onclick="{!c.onClick}"/>                     
+                                    </aura:set>
+                                </aura:if>
+                                <div aura:id="time" id="divId" class='timerClass'>
+                                    {!v.stime}
+                                </div>
+                            </li>
+                        </ul>
+                    </center>
+                </aura:if>
+                <div class="tableCont slds-scrollable--y">
+                    <table class="slds-table slds-table--bordered slds-table--fixed-layout fullWidth">
+                        <thead>
+                           <tr class="slds-text-title--caps">
+                                <th scope="col" class="numCol"></th>
+                                <th scope="col">
+                                    <div class="slds-truncate headPad" title="Agent">Agent</div>
+                                </th>
+                                <th scope="col" class="">
+                                    <div class="slds-truncate headPad" title="Date">Date</div>
+                                </th>
+                                <th scope="col" class="phone">
+                                    <div class="slds-truncate headPad" title="Duration">Duration</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <aura:iteration items="{!v.sessions}" var="session">
+<<<<<<< HEAD
+                             
+=======
+>>>>>>> a37b140998d9759a5043cebe76fe0b3f91e019ed
+                                <c:SessionItem session="{!session}"/>
+                            </aura:iteration>
+                        </tbody>
+                    </table>                
+                </div>	
+            </div>
+        </lightning:card>
+    </aura:if>
+    
+    <div aura:id="myModal" class="slds-hide">
+        <div role="dialog" tabindex="-1" aria-labelledby="header43" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <div class="slds-modal__header">
+                    <h2 id="header43" class="slds-text-heading--medium">New Session</h2>
+                </div>
+                <div class="slds-modal__content slds-p-around--medium">
+                    <div>
+                        <lightning:input aura:id="sessionField" type="date" name="date" label="Date" required="true" value="{!v.manualDate}" displayDatePicker="true" />
+                        <lightning:input aura:id="sessionField" type="string" name="duration" label="Duration" required="true" value="{!v.manualDuration}" pattern="[0-9][0-9]:[0-5][0-9]:[0-5][0-9]" title="Time" placeholder="00:00:00"/>
+                    </div>
+                </div>
+                <div class="slds-modal__footer">
+                    <button class="slds-button slds-button--brand" onclick="{!c.cancelSession}">Cancel</button>
+                    <button class="slds-button slds-button--brand" onclick="{!c.handleSaveSession}">Save</button>
+                </div>
+            </div>
+        </div>
+        <div class="slds-backdrop slds-backdrop--open"></div>
+    </div>
+	
+    
+    <!-- Display Lightning Data Service errors, if any -->
+    <aura:if isTrue="{!not(empty(v.caseError))}">
+        <div class="recordError">
+            <ui:message title="Error" severity="error" closable="true">
+                {!v.caseError}
+            </ui:message>
+        </div>
+    </aura:if>
+    
+</aura:component>
