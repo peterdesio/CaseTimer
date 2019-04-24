@@ -15,8 +15,5 @@ sfdx force:source:push
 
 #sfdx assign permission sets
 
-sfdx force:apex:execute -f config/create-demo-data-setup.apex
-
-
 sfdx force:org:open
 
